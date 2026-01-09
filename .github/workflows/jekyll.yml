@@ -1,65 +1,118 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>RUTA Y CUENTAS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    :root{
+      --blue:#0a1cff;
+      --blue2:#1f3bff;
+      --white:#fff;
+      --card:rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh;
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:var(--white);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .card{
+      width:100%; max-width:440px;
+      background:var(--card);
+      border-radius:18px; padding:26px;
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+      text-align:center;
+      animation:pop .5s ease;
+    }
+    @keyframes pop{from{transform:scale(.95);opacity:.6}to{transform:scale(1);opacity:1}}
+    .logo{
+      width:90px; height:90px; margin:0 auto 10px;
+      border-radius:50%; background:#fff; color:var(--blue);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; font-size:22px;
+      overflow:hidden;
+    }
+    .logo img{width:100%; height:100%; object-fit:cover}
+    h1{margin:8px 0 6px}
+    .sub{opacity:.9; margin-bottom:18px}
+    .input{
+      width:100%; padding:12px; margin:8px 0;
+      border-radius:10px; border:none; outline:none;
+      font-size:15px;
+    }
+    .btn{
+      width:100%; padding:14px; margin-top:12px;
+      border:none; border-radius:12px;
+      font-size:16px; font-weight:700; cursor:pointer;
+    }
+    .btn.white{background:#fff; color:var(--blue)}
+    .btn.google{background:#fff; color:#444}
+    .btn.paypal{background:#ffc439; color:#111}
+    .prices{
+      margin:16px 0; text-align:left;
+      background:rgba(255,255,255,.08);
+      border-radius:12px; padding:12px;
+    }
+    .prices div{margin:6px 0}
+    .links{display:flex; gap:10px; margin-top:14px}
+    .links a{
+      flex:1; text-decoration:none; text-align:center;
+      padding:12px; border-radius:12px;
+      background:#fff; color:var(--blue); font-weight:700;
+    }
+    .note{
+      margin-top:14px; font-size:13px; opacity:.9;
+      background:rgba(0,0,0,.25); padding:12px; border-radius:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
 
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+    <!-- LOGO -->
+    <div class="logo">
+      <!-- Si tienes logo: sube logo.png al repo y descomenta la línea de abajo -->
+      <!-- <img src="logo.png" alt="Logo"> -->
+      RYC
+    </div>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+    <h1>RUTA Y CUENTAS</h1>
+    <div class="sub">Venta de paneles y servicios digitales</div>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    <!-- LOGIN -->
+    <input class="input" type="text" placeholder="Usuario">
+    <input class="input" type="password" placeholder="KEY">
+    <button class="btn white">Login</button>
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    <!-- GOOGLE (visual) -->
+    <button class="btn google">Continuar con Google</button>
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    <!-- PRECIOS -->
+    <div class="prices">
+      <div>🔹 <strong>RUTAMODGANG</strong> — <strong>15 USD</strong></div>
+      <div>🔹 <strong>Panel Premium</strong> — <strong>30 USD</strong></div>
+      <div>🔹 <strong>Panel VIP</strong> — <strong>40 USD</strong></div>
+    </div>
 
-jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Ruby
-        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
-        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
-        with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-      - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
+    <!-- PAYPAL -->
+    <!-- Cambia TUUSUARIO por tu PayPal.me real -->
+    <a class="btn paypal" href="https://www.paypal.me/TUUSUARIO" target="_blank">Pagar con PayPal</a>
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    <!-- CONTACTO -->
+    <div class="links">
+      <a href="https://wa.me/18293655866" target="_blank">💬 WhatsApp</a>
+      <a href="https://t.me/" target="_blank">💬 Telegram</a>
+    </div>
+
+    <!-- NOTA -->
+    <div class="note">
+      ⚠️ ¡Cuidado con las copias! Verifica el vendedor oficial.
+    </div>
+
+  </div>
+</body>
+</html>
+
