@@ -1,51 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>RUTA Y CUENTAS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a1cff;
-      color: white;
-      text-align: center;
+    :root{
+      --blue:#0a1cff;
+      --blue2:#1f3bff;
+      --white:#fff;
+      --card:rgba(0,0,0,.28);
     }
-    .box {
-      max-width: 500px;
-      margin: 80px auto;
-      background: rgba(0,0,0,0.2);
-      padding: 30px;
-      border-radius: 12px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh;
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:var(--white);
+      display:flex; align-items:center; justify-content:center;
     }
-    h1 { margin-bottom: 10px; }
-    .price {
-      margin: 15px 0;
-      font-size: 18px;
+    .card{
+      width:100%; max-width:440px;
+      background:var(--card);
+      border-radius:18px; padding:26px;
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+      text-align:center;
+      animation:pop .5s ease;
     }
-    a.btn {
-      display: block;
-      margin-top: 20px;
-      padding: 15px;
-      background: white;
-      color: #0a1cff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    @keyframes pop{from{transform:scale(.95);opacity:.6}to{transform:scale(1);opacity:1}}
+    .logo{
+      width:90px; height:90px; margin:0 auto 10px;
+      border-radius:50%; background:#fff; color:var(--blue);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; font-size:22px;
+      overflow:hidden;
+    }
+    .logo img{width:100%; height:100%; object-fit:cover}
+    h1{margin:8px 0 6px}
+    .sub{opacity:.9; margin-bottom:18px}
+    .input{
+      width:100%; padding:12px; margin:8px 0;
+      border-radius:10px; border:none; outline:none;
+      font-size:15px;
+    }
+    .btn{
+      width:100%; padding:14px; margin-top:12px;
+      border:none; border-radius:12px;
+      font-size:16px; font-weight:700; cursor:pointer;
+    }
+    .btn.white{background:#fff; color:var(--blue)}
+    .btn.google{background:#fff; color:#444}
+    .btn.paypal{background:#ffc439; color:#111}
+    .prices{
+      margin:16px 0; text-align:left;
+      background:rgba(255,255,255,.08);
+      border-radius:12px; padding:12px;
+    }
+    .prices div{margin:6px 0}
+    .links{display:flex; gap:10px; margin-top:14px}
+    .links a{
+      flex:1; text-decoration:none; text-align:center;
+      padding:12px; border-radius:12px;
+      background:#fff; color:var(--blue); font-weight:700;
+    }
+    .note{
+      margin-top:14px; font-size:13px; opacity:.9;
+      background:rgba(0,0,0,.25); padding:12px; border-radius:10px;
     }
   </style>
 </head>
 <body>
-  <div class="box">
+  <div class="card">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <!-- Si tienes logo: sube logo.png al repo y descomenta la línea de abajo -->
+      <!-- <img src="logo.png" alt="Logo"> -->
+      RYC
+    </div>
+
     <h1>RUTA Y CUENTAS</h1>
-    <p>Venta de paneles y servicios digitales</p>
+    <div class="sub">Venta de paneles y servicios digitales</div>
 
-    <div class="price">🔹 RUTAMODGANG – 15 USD</div>
-    <div class="price">🔹 Panel Premium – 30 USD</div>
-    <div class="price">🔹 Panel VIP – 40 USD</div>
+    <!-- LOGIN -->
+    <input class="input" type="text" placeholder="Usuario">
+    <input class="input" type="password" placeholder="KEY">
+    <button class="btn white">Login</button>
 
-    <a class="btn" href="https://wa.me/18293655866">Contactar por WhatsApp</a>
+    <!-- GOOGLE (visual) -->
+    <button class="btn google">Continuar con Google</button>
+
+    <!-- PRECIOS -->
+    <div class="prices">
+      <div>🔹 <strong>RUTAMODGANG</strong> — <strong>15 USD</strong></div>
+      <div>🔹 <strong>Panel Premium</strong> — <strong>30 USD</strong></div>
+      <div>🔹 <strong>Panel VIP</strong> — <strong>40 USD</strong></div>
+    </div>
+
+    <!-- PAYPAL -->
+    <!-- Cambia TUUSUARIO por tu PayPal.me real -->
+    <a class="btn paypal" href="https://www.paypal.me/TUUSUARIO" target="_blank">Pagar con PayPal</a>
+
+    <!-- CONTACTO -->
+    <div class="links">
+      <a href="https://wa.me/18293655866" target="_blank">💬 WhatsApp</a>
+      <a href="https://t.me/" target="_blank">💬 Telegram</a>
+    </div>
+
+    <!-- NOTA -->
+    <div class="note">
+      ⚠️ ¡Cuidado con las copias! Verifica el vendedor oficial.
+    </div>
+
   </div>
 </body>
 </html>
