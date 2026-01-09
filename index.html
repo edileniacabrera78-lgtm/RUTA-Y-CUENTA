@@ -2,116 +2,119 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>RUTA Y CUENTAS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUTA Y CUENTA V13</title>
   <style>
-    :root{
-      --blue:#0a1cff;
-      --blue2:#1f3bff;
-      --white:#fff;
-      --card:rgba(0,0,0,.28);
+    :root {
+      --bg: #0b1324;
+      --panel: #121c33;
+      --panel-2: #0f1a2e;
+      --primary: #3b82f6;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0; min-height:100vh;
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:var(--white);
-      display:flex; align-items:center; justify-content:center;
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    body { margin: 0; background: linear-gradient(180deg, #0a1020, #070b16); color: var(--text); }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; background: #0c1428; border-bottom: 1px solid #1f2a44;
+      position: sticky; top: 0; z-index: 10;
     }
-    .card{
-      width:100%; max-width:440px;
-      background:var(--card);
-      border-radius:18px; padding:26px;
-      box-shadow:0 20px 40px rgba(0,0,0,.45);
-      text-align:center;
-      animation:pop .5s ease;
+    header h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
+    header button { background: var(--primary); color: #fff; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+
+    .container { max-width: 1100px; margin: 28px auto; padding: 0 16px; }
+    .card { background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid #1f2a44; border-radius: 14px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } }
+
+    label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    input, select {
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid #253255;
+      background: #0b1326; color: var(--text);
     }
-    @keyframes pop{from{transform:scale(.95);opacity:.6}to{transform:scale(1);opacity:1}}
-    .logo{
-      width:90px; height:90px; margin:0 auto 10px;
-      border-radius:50%; background:#fff; color:var(--blue);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900; font-size:22px;
-      overflow:hidden;
-    }
-    .logo img{width:100%; height:100%; object-fit:cover}
-    h1{margin:8px 0 6px}
-    .sub{opacity:.9; margin-bottom:18px}
-    .input{
-      width:100%; padding:12px; margin:8px 0;
-      border-radius:10px; border:none; outline:none;
-      font-size:15px;
-    }
-    .btn{
-      width:100%; padding:14px; margin-top:12px;
-      border:none; border-radius:12px;
-      font-size:16px; font-weight:700; cursor:pointer;
-    }
-    .btn.white{background:#fff; color:var(--blue)}
-    .btn.google{background:#fff; color:#444}
-    .btn.paypal{background:#ffc439; color:#111}
-    .prices{
-      margin:16px 0; text-align:left;
-      background:rgba(255,255,255,.08);
-      border-radius:12px; padding:12px;
-    }
-    .prices div{margin:6px 0}
-    .links{display:flex; gap:10px; margin-top:14px}
-    .links a{
-      flex:1; text-decoration:none; text-align:center;
-      padding:12px; border-radius:12px;
-      background:#fff; color:var(--blue); font-weight:700;
-    }
-    .note{
-      margin-top:14px; font-size:13px; opacity:.9;
-      background:rgba(0,0,0,.25); padding:12px; border-radius:10px;
-    }
+    .btn { background: var(--primary); border: none; color: #fff; padding: 12px 16px; border-radius: 10px; cursor: pointer; }
+    .btn.alt { background: #2563eb; }
+    .btn.ghost { background: transparent; border: 1px solid #253255; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+    thead th { text-align: left; background: #14224a; padding: 12px; font-size: 13px; }
+    tbody td { padding: 12px; border-top: 1px solid #1f2a44; color: #cbd5f5; }
+
+    .actions { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+
+    .footer { margin-top: 26px; }
+    .support { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 700px){ .support { grid-template-columns: 1fr; } }
+    .wa { background: #22c55e; }
+    .tg { background: #3b82f6; }
+    .support a { text-decoration: none; color: #fff; padding: 14px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+    .note { text-align: center; color: var(--muted); margin-top: 10px; font-size: 13px; }
   </style>
 </head>
 <body>
-  <div class="card">
-
-    <!-- LOGO -->
-    <div class="logo">
-      <!-- Si tienes logo: sube logo.png al repo y descomenta la línea de abajo -->
-      <!-- <img src="logo.png" alt="Logo"> -->
-      RYC
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="logo.png" alt="Logo" style="width:48px;height:48px;border-radius:50%;box-shadow:0 0 20px rgba(34,197,94,.6)">
+      <h1>RUTA Y CUENTA V13</h1>
     </div>
+    <button>Cerrar Sesión</button>
+  </header>
 
-    <h1>RUTA Y CUENTAS</h1>
-    <div class="sub">Venta de paneles y servicios digitales</div>
+  <main class="container">
+    <section class="card">
+      <div class="grid">
+        <div>
+          <label>CANTIDAD A FILTRAR</label>
+          <input type="number" value="9" />
+        </div>
+        <div>
+          <label>¿Estás autorizado?</label>
+          <input placeholder="Ingrese su clave" />
+          <div style="margin-top:10px"><button class="btn">CONFIRMAR</button></div>
+        </div>
+      </div>
 
-    <!-- LOGIN -->
-    <input class="input" type="text" placeholder="Usuario">
-    <input class="input" type="password" placeholder="KEY">
-    <button class="btn white">Login</button>
+      <div style="margin-top:16px">
+        <label>SELECCIONAR RUTA</label>
+        <select>
+          <option>ALEATORIA</option>
+          <option>RUTA 1</option>
+          <option>RUTA 2</option>
+        </select>
+      </div>
 
-    <!-- GOOGLE (visual) -->
-    <button class="btn google">Continuar con Google</button>
+      <table>
+        <thead>
+          <tr>
+            <th>RUTA</th>
+            <th>CUENTA</th>
+            <th>DATA</th>
+            <th>ESTADO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="text-align:center;color:#94a3b8">Sin datos</td></tr>
+        </tbody>
+      </table>
 
-    <!-- PRECIOS -->
-    <div class="prices">
-      <div>🔹 <strong>RUTAMODGANG</strong> — <strong>15 USD</strong></div>
-      <div>🔹 <strong>Panel Premium</strong> — <strong>30 USD</strong></div>
-      <div>🔹 <strong>Panel VIP</strong> — <strong>40 USD</strong></div>
-    </div>
+      <div class="actions">
+        <button class="btn">GENERAR</button>
+        <button class="btn alt">BUZÓN</button>
+        <button class="btn ghost">VERIFICAR</button>
+      </div>
+    </section>
 
-    <!-- PAYPAL -->
-    <!-- Cambia TUUSUARIO por tu PayPal.me real -->
-    <a class="btn paypal" href="https://www.paypal.me/TUUSUARIO" target="_blank">Pagar con PayPal</a>
-
-    <!-- CONTACTO -->
-    <div class="links">
-      <a href="https://wa.me/18293655866" target="_blank">💬 WhatsApp</a>
-      <a href="https://t.me/" target="_blank">💬 Telegram</a>
-    </div>
-
-    <!-- NOTA -->
-    <div class="note">
-      ⚠️ ¡Cuidado con las copias! Verifica el vendedor oficial.
-    </div>
-
-  </div>
+    <section class="card footer">
+      <h3>Contacto y Soporte</h3>
+      <div class="support">
+        <a class="wa" href="https://wa.me/18293655866" target="_blank">Contactar por WhatsApp</a>
+        <a class="tg" href="#">Contactar por Telegram</a>
+      </div>
+      <div class="note">¿Necesitas ayuda? Contacta con nuestro equipo de soporte</div>
+      <div class="note">Creado por <strong>Rey Conet</strong> · Tel: <strong>829‑365‑5866</strong></div>
+    </section>
+  </main>
 </body>
 </html>
